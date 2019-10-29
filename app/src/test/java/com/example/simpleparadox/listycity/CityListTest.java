@@ -93,4 +93,17 @@ class CityListTest {
 
         assertEquals(1, cityList.countCities());
     }
+
+    @Test
+    void testEditCity(){
+        CityList cityList = mockCityList();
+        City city = new City("Victoria", "British Columbia");
+        cityList.add(city);
+
+        // simulating edited city name
+        City comparedCity = cityList.getCities().get(0);
+        String newName = "Vancouver";
+        assertEquals(comparedCity.getCityName(),newName);
+
+    }
 }
