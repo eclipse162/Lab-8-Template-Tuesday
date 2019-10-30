@@ -2,7 +2,10 @@ package com.example.simpleparadox.listycity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -17,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
     ListView cityList;
     ArrayAdapter<City> cityAdapter;
     ArrayList<City> cityDataList;
-
     CustomList customList;
+    public static final String CITY_NAME = "com.example.simpleparadox.listycity.CITY_NAME";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,18 +30,17 @@ public class MainActivity extends AppCompatActivity {
 
         cityList = findViewById(R.id.city_list);
 
-        String []cities ={"Edmonton", "Vancouver", "Toronto", "Hamilton", "Denver", "Los Angeles"};
-        String []provinces = {"AB", "BC", "ON", "ON", "CO", "CA"};
+        String[] cities = {"Edmonton", "Vancouver", "Toronto", "Hamilton", "Denver", "Los Angeles"};
+        String[] provinces = {"AB", "BC", "ON", "ON", "CO", "CA"};
 
 
         cityDataList = new ArrayList<>();
 
-        for(int i=0;i<cities.length;i++){
+        for (int i = 0; i < cities.length; i++) {
             cityDataList.add((new City(cities[i], provinces[i])));
         }
 
         cityAdapter = new CustomList(this, cityDataList);
-
         cityList.setAdapter(cityAdapter);
 
 //        dataList = new ArrayList<>();
@@ -47,10 +49,5 @@ public class MainActivity extends AppCompatActivity {
 //        cityAdapter = new ArrayAdapter<>(this, R.layout.content, dataList);
 //
 //        cityList.setAdapter(cityAdapter);
-
-
-
     }
-
-
 }

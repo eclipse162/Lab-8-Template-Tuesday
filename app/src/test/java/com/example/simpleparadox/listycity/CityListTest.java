@@ -95,15 +95,20 @@ class CityListTest {
     }
 
     @Test
-    void testEditCity(){
-        CityList cityList = mockCityList();
+    void testGetLastCity(){
+        CityList cityList = new CityList();
+
+        assertThrows(NullPointerException.class, () -> {
+            cityList.getLastCity();
+        });
+
         City city = new City("Victoria", "British Columbia");
         cityList.add(city);
 
-        // simulating edited city name
-        City comparedCity = cityList.getCities().get(0);
-        String newName = "Vancouver";
-        assertEquals(comparedCity.getCityName(),newName);
+        City city2 = new City("Vancouver", "British Columbia");
+        cityList.add(city2);
+        City lastCity = cityList.getLastCity();
+        assertEquals(city2,lastCity);
 
     }
 }

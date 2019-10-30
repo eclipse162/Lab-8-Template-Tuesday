@@ -17,6 +17,8 @@ public class City implements Comparable<City>{
         return this.province;
     }
 
+    void setCityName(String name){this.city = name;}
+
     @Override
     public int compareTo(City o) {
         return city.compareTo(o.getCityName());

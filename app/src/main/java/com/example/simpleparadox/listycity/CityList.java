@@ -69,7 +69,13 @@ public class CityList {
         }
     }
 
-    // public void edit(City city){}
+    public City getLastCity(){
+        if (cities.size() == 0){
+            throw new NullPointerException();
+        }
+        City lastCity = cities.get(cities.size()-1);
+        return lastCity;
+    }
 
     /**
      * Return the size of the city list
